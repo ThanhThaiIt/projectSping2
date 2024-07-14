@@ -40,13 +40,25 @@ public class BuildingAPI {
 	private BuildingService buildingService;
 	
 	@GetMapping(value = "/api/building/")
-	public List<BuildingDTO> getBuildingList(@RequestParam(value = "name",required = false) String name,
-			@RequestParam(value = "districtid",required = false) Long districId,
-			@RequestParam(value = "typeCode",required = false) List<String> listRentType) {
-		List<BuildingDTO> results = buildingService.findAll(name,districId,listRentType);
+	public List<BuildingDTO> getBuildingList(@RequestParam Map<String, Object> paramss, 
+			@RequestParam(value = "rentTypeCode", required =  false) List<String> listRentType) {
+		List<BuildingDTO> results = buildingService.findAll(paramss,listRentType);
 		
 		return results;
 	}
+	
+	
+	
+	
+//	
+//	@GetMapping(value = "/api/building/")
+//	public List<BuildingDTO> getBuildingList(@RequestParam(value = "name",required = false) String name,
+//			@RequestParam(value = "districtid",required = false) Long districId,
+//			@RequestParam(value = "typeCode",required = false) List<String> listRentType) {
+//		List<BuildingDTO> results = buildingService.findAll(name,districId,listRentType);
+//		
+//		return results;
+//	}
 	
 	
 	
