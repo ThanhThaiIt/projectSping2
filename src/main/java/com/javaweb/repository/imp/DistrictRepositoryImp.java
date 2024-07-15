@@ -28,7 +28,7 @@ public class DistrictRepositoryImp implements DistrictRepository{
 	        ResultSet resultSet = preparedStatement.executeQuery();
 	        
 	        // Nếu có kết quả, tạo đối tượng User từ dữ liệu kết quả
-	        if (resultSet.next()) {
+	        while  (resultSet.next()) {
 	        	 nameDistrict = resultSet.getString("name");
 	            
 	            		

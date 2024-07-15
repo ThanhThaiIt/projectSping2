@@ -45,7 +45,8 @@ public class BuildingRepositoryImp implements BuildingRepository {
 		for (Map.Entry<String, Object> item : params.entrySet()) {
 			if (!item.getKey().equals("staffID") && !item.getKey().equals("rentTypeCode")
 					&& !item.getKey().startsWith("rentarea") && !item.getKey().startsWith("rentprice")) {
-				String value = item.getValue().toString();
+				String value = item.getValue().toString();// always check empty value, if the value is empty, get it out
+															// of list params
 				if (StringUtil.checkStringNull(value)) {
 					if (NumberUtils.isNumber(value) == true) {
 						where.append(" and b." + item.getKey() + " = " + value);
@@ -84,7 +85,7 @@ public class BuildingRepositoryImp implements BuildingRepository {
 		}
 
 		if (listRentType != null && listRentType.size() > 0) {
-			List<String> code = new ArrayList<String>();
+			List<String> code = new ArrayList<String>();// exchang listrent -> listcode including ' '
 
 			for (String item : listRentType) {
 				code.add("'" + item + "'");

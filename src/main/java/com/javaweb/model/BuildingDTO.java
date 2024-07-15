@@ -1,5 +1,7 @@
 package com.javaweb.model;
 
+import java.sql.Date;
+
 public class BuildingDTO {
 	
 	private String name;
@@ -8,10 +10,12 @@ public class BuildingDTO {
 	private String managerNameString;
 	private String managerPhoneNumber;
 	private int floorarea;
+	private String rentArea;
 	private int leftArea;
 	private int rentprice;
 	private String servicefee;
 	private Double brokeragefee;
+	private Date createddate;
 
 	public String getName() {
 		return name;
@@ -72,6 +76,18 @@ public class BuildingDTO {
 	}
 	public void setBrokeragefee(Double brokeragefee) {
 		this.brokeragefee = brokeragefee;
+	}
+	public String getRentArea() {
+		return rentArea;
+	}
+	public void setRentArea(String rentArea) {
+		this.rentArea = rentArea;
+	}
+	public Date getCreateddate() {
+		return createddate;
+	}
+	public void setCreateddate(Date createddate) {
+		this.createddate = createddate;
 	}
 	
 	
